@@ -1,0 +1,101 @@
+[gd_scene load_steps=15 format=3 uid="uid://d2t6cqcnivw3k"]
+
+[ext_resource type="Script" uid="uid://cdixwh8wcrm5g" path="res://scenes/samurai_commander_script.gd" id="1_1howb"]
+[ext_resource type="Texture2D" uid="uid://dtpbmvamdx4li" path="res://sprites/Run.png" id="2_l8ty6"]
+[ext_resource type="AudioStream" uid="uid://bc0nvucjxa30a" path="res://assets/ytmp3free.cc_soldiers-running-sound-effect-youtubemp3free.org.mp3" id="4_k7wek"]
+[ext_resource type="AudioStream" uid="uid://dctyo68ooers5" path="res://assets/Step.wav" id="5_bf8vv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6of52"]
+atlas = ExtResource("2_l8ty6")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekmcw"]
+atlas = ExtResource("2_l8ty6")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twup3"]
+atlas = ExtResource("2_l8ty6")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bf8vv"]
+atlas = ExtResource("2_l8ty6")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80vql"]
+atlas = ExtResource("2_l8ty6")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3t8lq"]
+atlas = ExtResource("2_l8ty6")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sivv1"]
+atlas = ExtResource("2_l8ty6")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12pjt"]
+atlas = ExtResource("2_l8ty6")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_epnrr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6of52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekmcw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twup3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bf8vv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80vql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3t8lq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sivv1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12pjt")
+}],
+"loop": true,
+"name": &"run",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6s244"]
+radius = 4.122216
+height = 35.74543
+
+[node name="SamuraiCommander" type="CharacterBody2D"]
+scale = Vector2(5.6, 5.6)
+collision_layer = 32
+script = ExtResource("1_1howb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.8214288, 0.8214288)
+sprite_frames = SubResource("SpriteFrames_epnrr")
+animation = &"run"
+autoplay = "run"
+frame_progress = 0.19512579
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-11.607142, 18.750002)
+rotation = 0.42157748
+scale = Vector2(0.6954117, 1)
+shape = SubResource("CapsuleShape2D_6s244")
+
+[node name="SprintButtonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_bf8vv")
+volume_db = 7.0
+
+[node name="Running" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_k7wek")
+volume_db = 7.0
+pitch_scale = 1.3

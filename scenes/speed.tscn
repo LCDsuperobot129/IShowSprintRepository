@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://bwb8gir5favsw"]
+
+[ext_resource type="Script" uid="uid://dh4eb0xbf5dli" path="res://scenes/speed.gd" id="1_73mvb"]
+[ext_resource type="Texture2D" uid="uid://kxjxlwu4l3yj" path="res://sprites/pixil-frame-0.png" id="1_mwkbe"]
+[ext_resource type="Texture2D" uid="uid://buxah1a5w17ff" path="res://sprites/pixil-frame-0 (3).png" id="2_73mvb"]
+[ext_resource type="Texture2D" uid="uid://bmhxv03cmjdur" path="res://sprites/pixil-frame-0 (5).png" id="3_bgi18"]
+[ext_resource type="Texture2D" uid="uid://bt6dsj60w6w1v" path="res://sprites/pixil-frame-0 (1).png" id="3_o66ey"]
+[ext_resource type="AudioStream" uid="uid://dctyo68ooers5" path="res://assets/Step.wav" id="5_bgi18"]
+[ext_resource type="AudioStream" uid="uid://da6nhxluv8ueq" path="res://assets/ishowspeedrunning.mp3" id="6_1la8p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uopg3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mwkbe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_o66ey")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bgi18")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_73mvb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.5
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6s244"]
+radius = 3.4420872
+height = 33.128296
+
+[node name="Speed" type="CharacterBody2D"]
+scale = Vector2(5.6, 5.6)
+collision_layer = 64
+script = ExtResource("1_73mvb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_uopg3")
+autoplay = "default"
+frame_progress = 0.73756266
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7.8571434, -6.25)
+rotation = 0.454423
+scale = Vector2(0.6954117, 1)
+shape = SubResource("CapsuleShape2D_6s244")
+
+[node name="SprintButtonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_bgi18")
+volume_db = 3.5
+
+[node name="Running" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_1la8p")
+volume_db = 4.0

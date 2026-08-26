@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3 uid="uid://d1f2b0t45s4ol"]
+
+[ext_resource type="FontFile" uid="uid://bn7ysigdasxq2" path="res://sprites/VCR_OSD_MONO_1.001.ttf" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://kxjxlwu4l3yj" path="res://sprites/pixil-frame-0.png" id="2_8ln24"]
+[ext_resource type="Texture2D" uid="uid://bt6dsj60w6w1v" path="res://sprites/pixil-frame-0 (1).png" id="3_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://bmhxv03cmjdur" path="res://sprites/pixil-frame-0 (5).png" id="4_oa1go"]
+[ext_resource type="Texture2D" uid="uid://27pfvo3w5qty" path="res://sprites/pixil-frame-0 (2).png" id="5_tbmy8"]
+[ext_resource type="Script" uid="uid://bvii48vwqjowo" path="res://scenes/play_button.gd" id="6_oa1go"]
+[ext_resource type="AudioStream" uid="uid://csrcjfqtomao2" path="res://assets/pixel-paradise-358340.mp3" id="6_rtw2f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ekxnf"]
+font = ExtResource("1_l6cm7")
+font_size = 150
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jk1qb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8ln24")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rtw2f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_oa1go")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tbmy8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MainPanel" type="Panel" parent="CanvasLayer"]
+offset_right = 1926.0
+offset_bottom = 1287.0
+
+[node name="Title" type="Label" parent="CanvasLayer/MainPanel"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 50.0
+offset_right = 1138.0
+offset_bottom = 241.0
+text = "IShowSprint"
+label_settings = SubResource("LabelSettings_ekxnf")
+
+[node name="Title2" type="Label" parent="CanvasLayer/MainPanel"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 974.0
+offset_right = 1633.0
+offset_bottom = 1165.0
+scale = Vector2(0.31999922, 0.31999922)
+text = "superobot's studio"
+label_settings = SubResource("LabelSettings_ekxnf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/MainPanel"]
+position = Vector2(1649, 742)
+scale = Vector2(19.039997, 19.039997)
+sprite_frames = SubResource("SpriteFrames_jk1qb")
+autoplay = "default"
+frame = 2
+frame_progress = 0.319159
+
+[node name="PlayButton" type="Button" parent="CanvasLayer/MainPanel"]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 254.0
+offset_right = 535.0
+offset_bottom = 375.0
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 100
+text = "Play"
+script = ExtResource("6_oa1go")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_rtw2f")
+autoplay = true
+
+[connection signal="button_down" from="CanvasLayer/MainPanel/PlayButton" to="CanvasLayer/MainPanel/PlayButton" method="_on_button_down"]

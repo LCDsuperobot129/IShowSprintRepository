@@ -1,0 +1,87 @@
+[gd_scene load_steps=13 format=3 uid="uid://bjkngn0b5bi0"]
+
+[ext_resource type="Script" uid="uid://dgwrjaqm805bo" path="res://scenes/hard_bot_script.gd" id="1_vwib0"]
+[ext_resource type="Texture2D" uid="uid://dtpbmvamdx4li" path="res://sprites/Run.png" id="2_vwib0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ewwoh"]
+radius = 4.4662943
+height = 47.388428
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uv2qo"]
+atlas = ExtResource("2_vwib0")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4qoi"]
+atlas = ExtResource("2_vwib0")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3td8b"]
+atlas = ExtResource("2_vwib0")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prubq"]
+atlas = ExtResource("2_vwib0")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxdis"]
+atlas = ExtResource("2_vwib0")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tg1rd"]
+atlas = ExtResource("2_vwib0")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrbsi"]
+atlas = ExtResource("2_vwib0")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84x3q"]
+atlas = ExtResource("2_vwib0")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vrbsi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uv2qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4qoi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3td8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prubq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxdis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tg1rd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrbsi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84x3q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="HardBot" type="CharacterBody2D"]
+texture_filter = 1
+collision_layer = 96
+script = ExtResource("1_vwib0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-17, 25.000002)
+rotation = 0.51476437
+shape = SubResource("CapsuleShape2D_ewwoh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vrbsi")
+frame = 6
+frame_progress = 0.84263325

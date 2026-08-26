@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://v0n8r564y4kq"]
+
+[ext_resource type="Script" uid="uid://bj2lem5cy4jgs" path="res://scenes/easy_bot_real_script.gd" id="1_mcvhq"]
+[ext_resource type="Texture2D" uid="uid://bopldkvcqr8dq" path="res://sprites/normalsamurairun.png" id="2_mcvhq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hffi"]
+atlas = ExtResource("2_mcvhq")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsakh"]
+atlas = ExtResource("2_mcvhq")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4efo"]
+atlas = ExtResource("2_mcvhq")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ky1cv"]
+atlas = ExtResource("2_mcvhq")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ng8sw"]
+atlas = ExtResource("2_mcvhq")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvtmx"]
+atlas = ExtResource("2_mcvhq")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4waon"]
+atlas = ExtResource("2_mcvhq")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16fyk"]
+atlas = ExtResource("2_mcvhq")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_16fyk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hffi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsakh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4efo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ky1cv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ng8sw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvtmx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4waon")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16fyk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ewwoh"]
+radius = 4.4662943
+height = 47.388428
+
+[node name="EasyBot" type="CharacterBody2D"]
+texture_filter = 1
+script = ExtResource("1_mcvhq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_16fyk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-17, 25.000002)
+rotation = 0.51476437
+shape = SubResource("CapsuleShape2D_ewwoh")

@@ -1,0 +1,141 @@
+[gd_scene load_steps=15 format=3 uid="uid://cse6vtdg8oxwb"]
+
+[ext_resource type="FontFile" uid="uid://bn7ysigdasxq2" path="res://sprites/VCR_OSD_MONO_1.001.ttf" id="1_m3fk0"]
+[ext_resource type="Texture2D" uid="uid://kxjxlwu4l3yj" path="res://sprites/pixil-frame-0.png" id="2_8jojw"]
+[ext_resource type="Texture2D" uid="uid://bt6dsj60w6w1v" path="res://sprites/pixil-frame-0 (1).png" id="3_5pcxx"]
+[ext_resource type="Texture2D" uid="uid://bmhxv03cmjdur" path="res://sprites/pixil-frame-0 (5).png" id="4_xy63x"]
+[ext_resource type="Texture2D" uid="uid://27pfvo3w5qty" path="res://sprites/pixil-frame-0 (2).png" id="5_p5q8u"]
+[ext_resource type="Script" uid="uid://2h0qkl5eca0l" path="res://scenes/classic_sprint.gd" id="6_8jojw"]
+[ext_resource type="Script" uid="uid://cwo2m7uik3d3m" path="res://scenes/easy_bot_button_script.gd" id="7_5pcxx"]
+[ext_resource type="AudioStream" uid="uid://dhvxjq8204c2u" path="res://assets/pixel-fantasia-355123.mp3" id="7_8jojw"]
+[ext_resource type="Script" uid="uid://bxr5m25wsfrnm" path="res://scenes/medium_bot_button_script.gd" id="8_xy63x"]
+[ext_resource type="Script" uid="uid://lpdqw80qhbra" path="res://scenes/hard_bot_button_script.gd" id="9_p5q8u"]
+[ext_resource type="Script" uid="uid://ns7s6niltqfq" path="res://scenes/exit.gd" id="10_ov3en"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_v58te"]
+font = ExtResource("1_m3fk0")
+font_size = 150
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lrmiy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8jojw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5pcxx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xy63x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_p5q8u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ov3en"]
+font = ExtResource("1_m3fk0")
+font_size = 150
+
+[node name="GameSelecting" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MainPanel" type="Panel" parent="CanvasLayer"]
+offset_right = 1926.0
+offset_bottom = 1287.0
+
+[node name="Title" type="Label" parent="CanvasLayer/MainPanel"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 50.0
+offset_right = 1138.0
+offset_bottom = 241.0
+text = "IShowSprint"
+label_settings = SubResource("LabelSettings_v58te")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/MainPanel"]
+position = Vector2(1649, 742)
+scale = Vector2(19.039997, 19.039997)
+sprite_frames = SubResource("SpriteFrames_lrmiy")
+autoplay = "default"
+
+[node name="ClassicSprint" type="Button" parent="CanvasLayer/MainPanel"]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 260.0
+offset_right = 709.0
+offset_bottom = 381.0
+theme_override_fonts/font = ExtResource("1_m3fk0")
+theme_override_font_sizes/font_size = 75
+text = "Classic Sprint
+"
+script = ExtResource("6_8jojw")
+
+[node name="EasyBot" type="Button" parent="CanvasLayer/MainPanel"]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 410.0
+offset_right = 618.0
+offset_bottom = 531.0
+theme_override_fonts/font = ExtResource("1_m3fk0")
+theme_override_font_sizes/font_size = 60
+text = "Easy Bot"
+script = ExtResource("7_5pcxx")
+
+[node name="MediumBot" type="Button" parent="CanvasLayer/MainPanel"]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 555.0
+offset_right = 618.0
+offset_bottom = 676.0
+theme_override_fonts/font = ExtResource("1_m3fk0")
+theme_override_font_sizes/font_size = 60
+text = "Medium Bot"
+script = ExtResource("8_xy63x")
+
+[node name="HardBot" type="Button" parent="CanvasLayer/MainPanel"]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 698.0
+offset_right = 618.0
+offset_bottom = 819.0
+theme_override_fonts/font = ExtResource("1_m3fk0")
+theme_override_font_sizes/font_size = 60
+text = "Hard Bot"
+script = ExtResource("9_p5q8u")
+
+[node name="Exit" type="Button" parent="CanvasLayer/MainPanel"]
+layout_mode = 0
+offset_left = 1767.0
+offset_top = 28.0
+offset_right = 2012.5
+offset_bottom = 149.0
+scale = Vector2(0.48000002, 0.48000002)
+theme_override_fonts/font = ExtResource("1_m3fk0")
+theme_override_font_sizes/font_size = 60
+text = "Back"
+script = ExtResource("10_ov3en")
+
+[node name="Title2" type="Label" parent="CanvasLayer/MainPanel"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 879.99994
+offset_right = 1677.0
+offset_bottom = 1071.0
+scale = Vector2(0.2399989, 0.2399989)
+text = "Two player coming soon!"
+label_settings = SubResource("LabelSettings_ov3en")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_8jojw")
+autoplay = true
+
+[connection signal="button_down" from="CanvasLayer/MainPanel/ClassicSprint" to="CanvasLayer/MainPanel/ClassicSprint" method="_on_button_down"]
+[connection signal="button_down" from="CanvasLayer/MainPanel/EasyBot" to="CanvasLayer/MainPanel/EasyBot" method="_on_button_down"]
+[connection signal="button_down" from="CanvasLayer/MainPanel/MediumBot" to="CanvasLayer/MainPanel/MediumBot" method="_on_button_down"]
+[connection signal="button_down" from="CanvasLayer/MainPanel/HardBot" to="CanvasLayer/MainPanel/HardBot" method="_on_button_down"]
+[connection signal="button_down" from="CanvasLayer/MainPanel/Exit" to="CanvasLayer/MainPanel/Exit" method="_on_button_down"]
