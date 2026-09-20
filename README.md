@@ -1,6 +1,6 @@
 # I TOOK DOWN THE PAGE DUE TO COPYRIGHTED MATERIAL.
 
-# IShowSprintRepository
+# IShowSprint Repository
 Sprint as IShowSpeed and dominate! Mash the spacebar to become faster while sacrificing your stamina to do so, and beat fast bots!
 
 Attribution:
